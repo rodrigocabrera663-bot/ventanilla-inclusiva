@@ -1,0 +1,25 @@
+{
+  "solicitudes": [
+    {
+      "expediente": "GRC-2026-000123",
+      "estado": "En atención",
+      "oficina": "Secretaría de Transparencia",
+      "fechaIngreso": "2026-06-10",
+      "ultimoMovimiento": "Derivado al área responsable (2026-06-12)"
+    },
+    {
+      "expediente": "GRC-2026-000456",
+      "estado": "Atendido",
+      "oficina": "Mesa de Partes Virtual",
+      "fechaIngreso": "2026-06-05",
+      "ultimoMovimiento": "Respuesta enviada al correo del solicitante (2026-06-11)"
+    },
+    {
+      "expediente": "GRC-2026-000789",
+      "estado": "Observado",
+      "oficina": "Mesa de Partes Virtual",
+      "fechaIngreso": "2026-06-12",
+      "ultimoMovimiento": "Se solicita precisar la información requerida (2026-06-13)"
+    }
+  ]
+}
