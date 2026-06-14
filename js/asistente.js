@@ -13,7 +13,8 @@ const estado = {
   paso: 0,
   datos: { nombre: '', dni: '', correo: '' },
   detalle: '',
-  entrega: ''
+  entrega: '',
+  adjunto: ''
 };
 
 // Definicion de los pasos. clave = clave i18n (para titulo y audio quechua).
@@ -56,6 +57,12 @@ function renderInformacion() {
       <p class="ayuda" id="ayuda-detalle">Sé específico. Ejemplo: presupuesto de obras del año 2025.</p>
       <textarea id="detalle" name="detalle" aria-describedby="ayuda-detalle">${esc(estado.detalle)}</textarea>
     </div>
+    <div class="campo">
+      <label for="adjunto">Adjuntar documento de sustento <span class="ayuda">(opcional)</span></label>
+      <p class="ayuda" id="ayuda-adjunto">Puedes adjuntar tu solicitud firmada o un sustento. Formatos: PDF, JPG o PNG.</p>
+      <input type="file" id="adjunto" name="adjunto" accept=".pdf,.jpg,.jpeg,.png" aria-describedby="ayuda-adjunto">
+      <p id="nombre-adjunto" class="ayuda" aria-live="polite">${estado.adjunto ? 'Archivo seleccionado: ' + esc(estado.adjunto) : ''}</p>
+    </div>
     <p>Entidad: <strong>Gobierno Regional de Cusco</strong>.</p>`;
 }
 
@@ -87,6 +94,7 @@ function renderConfirmar() {
       <dt>Correo</dt><dd>${esc(estado.datos.correo)}</dd>
       <dt>Información solicitada</dt><dd>${esc(estado.detalle)}</dd>
       <dt>Forma de entrega</dt><dd>${esc(entregaTxt)}</dd>
+      <dt>Documento adjunto</dt><dd>${esc(estado.adjunto || 'Ninguno')}</dd>
     </dl>`;
 }
 
@@ -146,6 +154,14 @@ function pintar() {
   if (byId('btn-anterior')) byId('btn-anterior').addEventListener('click', anterior);
   if (byId('btn-siguiente')) byId('btn-siguiente').addEventListener('click', siguiente);
   if (byId('btn-enviar')) byId('btn-enviar').addEventListener('click', enviar);
+  if (byId('adjunto')) byId('adjunto').addEventListener('change', onAdjuntoCambio);
+}
+
+function onAdjuntoCambio() {
+  const adj = byId('adjunto');
+  estado.adjunto = adj && adj.files[0] ? adj.files[0].name : '';
+  const aviso = byId('nombre-adjunto');
+  if (aviso) aviso.textContent = estado.adjunto ? `Archivo seleccionado: ${estado.adjunto}` : '';
 }
 
 // ---------- Navegacion ----------
