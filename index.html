@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ventanilla Inclusiva — Gobierno Regional de Cusco</title>
+  <meta name="description" content="Trámites del Gobierno Regional de Cusco accesibles para personas con discapacidad visual.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="enlace-saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <div class="contenedor cabecera-fila">
+      <p class="marca">Gobierno Regional de Cusco</p>
+      <div class="preferencias" role="group" aria-label="Preferencias de accesibilidad">
+        <button type="button" id="btn-contraste" aria-pressed="false">Alto contraste</button>
+        <button type="button" id="btn-texto" aria-pressed="false">Texto grande</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" class="contenedor">
+    <h1>Ventanilla Inclusiva</h1>
+    <p class="intro">
+      Realiza trámites del Gobierno Regional de Cusco de forma autónoma y privada.
+      Esta plataforma es compatible con tu lector de pantalla.
+    </p>
+
+    <nav aria-label="Acciones principales">
+      <ul class="acciones">
+        <li>
+          <a class="tarjeta-accion" href="solicitud.html">
+            <span class="tarjeta-titulo">Presentar solicitud</span>
+            <span class="tarjeta-desc">Solicita acceso a información pública paso a paso.</span>
+          </a>
+        </li>
+        <li>
+          <a class="tarjeta-accion" href="consultar.html">
+            <span class="tarjeta-titulo">Consultar solicitud</span>
+            <span class="tarjeta-desc">Revisa el estado de un trámite con tu número de expediente.</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </main>
+
+  <footer class="contenedor pie">
+    <p>Prototipo de la Hackatón Transformagob 2026 · Desafío 15 · Software libre (MIT).</p>
+  </footer>
+
+  <script type="module" src="js/preferencias.js"></script>
+</body>
+</html>

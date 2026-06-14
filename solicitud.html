@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentar solicitud — Ventanilla Inclusiva</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="enlace-saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <div class="contenedor cabecera-fila">
+      <p class="marca"><a href="index.html" style="color:#fff">Gobierno Regional de Cusco</a></p>
+      <div class="preferencias" role="group" aria-label="Preferencias de accesibilidad">
+        <button type="button" id="btn-contraste" aria-pressed="false">Alto contraste</button>
+        <button type="button" id="btn-texto" aria-pressed="false">Texto grande</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" class="contenedor">
+    <h1>Presentar solicitud de acceso a información pública</h1>
+
+    <!-- Region de anuncios: el lector de pantalla la vocaliza al cambiar -->
+    <p id="anuncio" class="visually-hidden" aria-live="polite"></p>
+
+    <!-- Resumen de errores accesible -->
+    <div id="resumen-errores" role="alert" tabindex="-1" hidden></div>
+
+    <!-- Barra de comandos de voz (se rellena por voz.js si hay soporte) -->
+    <div id="barra-voz" class="barra-voz" hidden></div>
+
+    <!-- El asistente renderiza aqui el paso actual -->
+    <div id="paso-contenedor"></div>
+  </main>
+
+  <footer class="contenedor pie">
+    <p>Tus datos no salen de este dispositivo. Prototipo con datos de ejemplo.</p>
+  </footer>
+
+  <script type="module" src="js/preferencias.js"></script>
+  <script type="module" src="js/asistente.js"></script>
+</body>
+</html>

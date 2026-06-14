@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consultar solicitud — Ventanilla Inclusiva</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="enlace-saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <div class="contenedor cabecera-fila">
+      <p class="marca"><a href="index.html" style="color:#fff">Gobierno Regional de Cusco</a></p>
+      <div class="preferencias" role="group" aria-label="Preferencias de accesibilidad">
+        <button type="button" id="btn-contraste" aria-pressed="false">Alto contraste</button>
+        <button type="button" id="btn-texto" aria-pressed="false">Texto grande</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" class="contenedor">
+    <h1>Consultar estado de mi solicitud</h1>
+
+    <form id="form-consulta" novalidate>
+      <div class="campo">
+        <label for="expediente">Número de expediente</label>
+        <p class="ayuda" id="ayuda-exp">Ejemplo: GRC-2026-000123. Para probar, también puedes usar ese número.</p>
+        <input id="expediente" name="expediente" type="text"
+               aria-describedby="ayuda-exp" autocomplete="off">
+      </div>
+      <button type="submit" class="boton boton-primario">Consultar</button>
+    </form>
+
+    <div id="resultado" aria-live="polite"></div>
+  </main>
+
+  <footer class="contenedor pie">
+    <p>Prototipo con datos de ejemplo. Tus consultas no salen de este dispositivo.</p>
+  </footer>
+
+  <script type="module" src="js/preferencias.js"></script>
+  <script type="module" src="js/consultar.js"></script>
+</body>
+</html>
