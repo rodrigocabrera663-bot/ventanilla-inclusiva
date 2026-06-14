@@ -146,6 +146,9 @@ textarea { min-height: 120px; resize: vertical; }
 input[aria-invalid="true"], textarea[aria-invalid="true"] {
   border-color: var(--error); border-width: 3px;
 }
+.error-campo {
+  color: var(--error); font-weight: 600; margin: 6px 0 0;
+}
 fieldset { border: 2px solid var(--borde); border-radius: var(--radio); padding: 14px; }
 legend { font-weight: 700; padding: 0 8px; color: var(--azul-osc); }
 .opcion-radio { display: flex; align-items: center; gap: 10px; margin: 8px 0; }

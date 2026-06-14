@@ -67,6 +67,16 @@ function iniciarBarraVoz() {
 }
 
 function ejecutarComando(texto, estado) {
+  // Mejora 2: si el usuario esta escribiendo en un campo, no ejecutar comandos
+  // de navegacion (evita avances accidentales al captar palabras del dictado).
+  const foco = document.activeElement;
+  const escribiendo = foco && (foco.tagName === 'TEXTAREA' ||
+    (foco.tagName === 'INPUT' && ['text', 'email', 'number', 'search', ''].includes(foco.type)));
+  if (escribiendo) {
+    estado.textContent = 'Estás en un campo de texto. Sal del campo (tecla Tab) y luego di el comando.';
+    return;
+  }
+
   const a = window.asistente;
   const incluye = (...palabras) => palabras.some((p) => texto.includes(p));
 

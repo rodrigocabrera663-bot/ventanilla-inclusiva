@@ -124,8 +124,9 @@ function pintar() {
 
   contenedor.innerHTML = `
     <section class="paso" aria-labelledby="titulo-paso">
-      <p class="indicador-paso">Paso ${estado.paso + 1} de ${total}</p>
-      <h2 id="titulo-paso" tabindex="-1">${esc(t(def.clave))}</h2>
+      <p class="indicador-paso" aria-hidden="true">Paso ${estado.paso + 1} de ${total}</p>
+      <h2 id="titulo-paso" tabindex="-1"
+          aria-label="Paso ${estado.paso + 1} de ${total}: ${esc(t(def.clave))}">${esc(t(def.clave))}</h2>
       ${def.render()}
       <button type="button" class="boton-quechua" id="btn-quechua">▶ Escuchar este paso en quechua</button>
       <div class="acciones-paso">
@@ -136,9 +137,9 @@ function pintar() {
       </div>
     </section>`;
 
-  // Foco al titulo del paso (el lector lo anuncia) + indicador por aria-live
+  // Foco al titulo del paso: el lector anuncia "Paso X de Y: Titulo" (via aria-label).
+  // No usamos aria-live aqui para evitar doble locucion (Mejora 3).
   document.getElementById('titulo-paso').focus();
-  anunciar(`Paso ${estado.paso + 1} de ${total}`);
 
   // Eventos
   byId('btn-quechua').addEventListener('click', reproducirQuechua);
@@ -183,7 +184,20 @@ function enviar() {
 }
 
 // ---------- Errores accesibles ----------
+// Quita los errores inline anteriores y restaura aria-describedby/aria-invalid.
+function limpiarErroresInline() {
+  contenedor.querySelectorAll('.error-campo').forEach((el) => el.remove());
+  contenedor.querySelectorAll('[aria-invalid="true"]').forEach((el) => {
+    el.removeAttribute('aria-invalid');
+    const base = (el.getAttribute('aria-describedby') || '')
+      .split(/\s+/).filter((tk) => tk && !tk.startsWith('error-'));
+    el.setAttribute('aria-describedby', base.join(' '));
+  });
+}
+
 function mostrarErrores(errores) {
+  limpiarErroresInline();
+  // Resumen accesible arriba (role="alert", el foco salta aqui).
   const items = errores
     .map((e) => `<li><a href="#${e.campo}">${esc(e.mensaje)}</a></li>`)
     .join('');
@@ -191,15 +205,31 @@ function mostrarErrores(errores) {
     <h2>Revisa estos puntos antes de continuar</h2>
     <ul>${items}</ul>`;
   resumenErrores.hidden = false;
+
+  // Mejora 1: ademas, error INLINE en cada campo, enlazado por aria-describedby,
+  // para que el lector lo lea al enfocar el campo (no solo en el resumen).
   errores.forEach((e) => {
     const campo = byId(e.campo);
-    if (campo) campo.setAttribute('aria-invalid', 'true');
+    if (!campo) return;
+    campo.setAttribute('aria-invalid', 'true');
+    const errId = `error-${e.campo}`;
+    const aviso = document.createElement('p');
+    aviso.id = errId;
+    aviso.className = 'error-campo';
+    aviso.textContent = e.mensaje;
+    campo.insertAdjacentElement('afterend', aviso);
+    const tokens = (campo.getAttribute('aria-describedby') || '')
+      .split(/\s+/).filter((tk) => tk && !tk.startsWith('error-'));
+    tokens.push(errId);
+    campo.setAttribute('aria-describedby', tokens.join(' '));
   });
+
   resumenErrores.focus();
 }
 function ocultarErrores() {
   resumenErrores.hidden = true;
   resumenErrores.innerHTML = '';
+  limpiarErroresInline();
 }
 
 // ---------- Audio quechua ----------
