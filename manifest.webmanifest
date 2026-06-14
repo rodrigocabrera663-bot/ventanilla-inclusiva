@@ -1,0 +1,17 @@
+{
+  "name": "Ventanilla Inclusiva — GORE Cusco",
+  "short_name": "Ventanilla Inclusiva",
+  "description": "Trámites del Gobierno Regional de Cusco accesibles para personas con discapacidad visual.",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#0b3d91",
+  "lang": "es",
+  "dir": "ltr",
+  "categories": ["government", "accessibility", "productivity"],
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

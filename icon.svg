@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Ventanilla Inclusiva">
+  <rect width="512" height="512" rx="96" fill="#0b3d91"/>
+  <circle cx="256" cy="196" r="60" fill="#ffffff"/>
+  <path d="M256 270c-66 0-120 40-120 96v18h240v-18c0-56-54-96-120-96z" fill="#ffffff"/>
+  <path d="M150 256a150 150 0 0 1 0-0M150 256" fill="none"/>
+  <g stroke="#b8860b" stroke-width="14" stroke-linecap="round" fill="none">
+    <path d="M372 176a64 64 0 0 1 0 90"/>
+    <path d="M400 150a104 104 0 0 1 0 142"/>
+  </g>
+</svg>
