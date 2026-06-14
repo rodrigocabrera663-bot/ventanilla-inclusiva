@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi casillero — Ventanilla Inclusiva</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="enlace-saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <div class="contenedor cabecera-fila">
+      <p class="marca"><a href="index.html" style="color:#fff">Gobierno Regional de Cusco</a></p>
+      <div class="preferencias" role="group" aria-label="Preferencias de accesibilidad">
+        <button type="button" id="btn-contraste" aria-pressed="false">Alto contraste</button>
+        <button type="button" id="btn-texto" aria-pressed="false">Texto grande</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" class="contenedor">
+    <h1>Mi casillero electrónico</h1>
+    <p id="saludo" class="intro"></p>
+
+    <div class="acciones-paso">
+      <a class="boton boton-primario" href="solicitud.html">Presentar nueva solicitud</a>
+      <button type="button" class="boton boton-secundario" id="btn-salir">Cerrar sesión</button>
+    </div>
+
+    <h2 style="margin-top:28px">Mis solicitudes</h2>
+    <div id="lista-solicitudes" aria-live="polite"></div>
+  </main>
+
+  <footer class="contenedor pie">
+    <p>Casillero de demostración con datos de ejemplo. Tus datos no salen de este dispositivo.</p>
+  </footer>
+
+  <script type="module" src="js/preferencias.js"></script>
+  <script type="module" src="js/casillero.js"></script>
+</body>
+</html>

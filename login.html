@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingresar — Ventanilla Inclusiva</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="enlace-saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <div class="contenedor cabecera-fila">
+      <p class="marca"><a href="index.html" style="color:#fff">Gobierno Regional de Cusco</a></p>
+      <div class="preferencias" role="group" aria-label="Preferencias de accesibilidad">
+        <button type="button" id="btn-contraste" aria-pressed="false">Alto contraste</button>
+        <button type="button" id="btn-texto" aria-pressed="false">Texto grande</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" class="contenedor">
+    <h1>Ingresa a tu casillero</h1>
+    <p class="intro">Con tu casillero puedes ver tus solicitudes y su estado. Sin
+      contraseñas complicadas ni CAPTCHA: pensado para ser accesible.</p>
+
+    <div id="resumen-errores" role="alert" tabindex="-1" hidden></div>
+
+    <form id="form-login" novalidate>
+      <div class="campo">
+        <label for="dni">Número de DNI</label>
+        <p class="ayuda" id="ayuda-dni">8 dígitos. Para esta demostración, puedes usar cualquier número de 8 dígitos.</p>
+        <input id="dni" name="dni" type="text" inputmode="numeric" maxlength="8" aria-describedby="ayuda-dni" autocomplete="off">
+      </div>
+      <div class="campo">
+        <label for="nombre">Tu nombre <span class="ayuda">(opcional)</span></label>
+        <input id="nombre" name="nombre" type="text" autocomplete="name">
+      </div>
+      <button type="submit" class="boton boton-primario">Ingresar a mi casillero</button>
+    </form>
+  </main>
+
+  <footer class="contenedor pie">
+    <p>Ingreso simulado con datos de ejemplo. Tus datos no salen de este dispositivo.</p>
+  </footer>
+
+  <script type="module" src="js/preferencias.js"></script>
+  <script type="module" src="js/login.js"></script>
+</body>
+</html>
