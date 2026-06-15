@@ -61,7 +61,7 @@ s.addText('— Usuario con discapacidad visual, Cusco', { x: 5.8, y: 5.6, w: 6.8
 // ---------- Slide 3: La solución ----------
 s = pptx.addSlide(); s.background = { color: BLANCO };
 titulo(s, 'La solución');
-s.addText('Un asistente conversacional guiado y accesible (WCAG 2.2) que permite a una persona ciega presentar y consultar una solicitud de acceso a información pública de forma autónoma y privada, usando su propio lector de pantalla.',
+s.addText('Construí un sistema de mesa de partes inclusiva: ingresar a un casillero, presentar una solicitud (con adjuntos), recibir el expediente y darle seguimiento — todo accesible (WCAG 2.2), con su propio lector de pantalla, de forma autónoma y privada.',
   { x: 0.7, y: 1.7, w: 11.9, h: 1.8, fontFace: BODY, fontSize: 22, color: TEXTO, lineSpacingMultiple: 1.15 });
 const chips = ['Autónomo', 'Privado', 'Offline', 'Open source'];
 chips.forEach((c, i) => {
@@ -91,10 +91,10 @@ s.addShape(pptx.ShapeType.roundRect, { x: 7.4, y: 1.7, w: 5.2, h: 4.4, rectRadiu
   fill: { color: 'F2F5FB' }, line: { color: NAVY, width: 1 } });
 s.addText([
   { text: 'Además\n', options: { bold: true, fontSize: 18, color: NAVY } },
+  { text: '🗂️  Casillero electrónico: ve tus solicitudes\n\n', options: {} },
+  { text: '🔊  Modo voz: la app lee sola, sin instalar nada\n\n', options: {} },
   { text: '🎙️  Comandos de voz en español (manos libres)\n\n', options: {} },
-  { text: '🗣️  Audio de apoyo en quechua por paso\n\n', options: {} },
-  { text: '⚠️  Identificación de errores accesible\n\n', options: {} },
-  { text: '🔎  Consulta de estado por nº de expediente', options: {} }
+  { text: '📱  App instalable (PWA) que funciona offline', options: {} }
 ], { x: 7.7, y: 2.0, w: 4.6, h: 3.8, fontFace: BODY, fontSize: 15, color: TEXTO, lineSpacingMultiple: 1.0 });
 
 // ---------- Slide 5: Valor público ----------
