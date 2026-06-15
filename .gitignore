@@ -2,3 +2,12 @@ node_modules/
 .DS_Store
 Thumbs.db
 package-lock.json
+
+# Documentos internos de planificacion (no son parte del entregable)
+ANALISIS-Y-PLAN.md
+DISENO-MVP.md
+PLAN-IMPLEMENTACION.md
+MEJORAS-PLAN.md
+CONTENIDO-PRESENTACION.md
+GUIA-COMPANERO.md
+Ventanilla-Inclusiva.pdf
