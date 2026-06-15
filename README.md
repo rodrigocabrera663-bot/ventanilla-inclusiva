@@ -7,6 +7,9 @@
 **Hackatón Transformagob 2026 · Desafío 15 · Gobierno Regional de Cusco.**
 Software libre (MIT). Sin backend, sin nube, sin datos reales.
 
+**🔗 Demo en vivo:** https://rodrigocabrera663-bot.github.io/ventanilla-inclusiva/
+> Pruébala con tu lector de pantalla. Para consultar un trámite usa el expediente `GRC-2026-000123`.
+
 ---
 
 ## El problema que decidí resolver
