@@ -50,7 +50,7 @@ git init
 printf "node_modules/\n.DS_Store\n" > .gitignore
 ```
 - [ ] **Paso 3: LICENSE MIT**
-Crear `LICENSE` con el texto MIT estándar (titular: "Rodrigo Cabrera — Ventanilla Inclusiva, 2026").
+Crear `LICENSE` con el texto MIT estándar (titular: "Pillaca cabrera Rodrigo Gerardo — Ventanilla Inclusiva, 2026").
 - [ ] **Paso 4: Datos sintéticos** — crear `data/tramites.json`:
 ```json
 {

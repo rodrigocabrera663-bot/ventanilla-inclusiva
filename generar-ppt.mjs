@@ -12,7 +12,7 @@ const BODY = 'Calibri';
 
 const pptx = new pptxgen();
 pptx.layout = 'LAYOUT_WIDE'; // 13.33 x 7.5
-pptx.author = 'Rodrigo Cabrera';
+pptx.author = 'Pillaca cabrera Rodrigo Gerardo';
 pptx.company = 'Ventanilla Inclusiva';
 
 const W = 13.33;
