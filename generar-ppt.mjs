@@ -17,13 +17,15 @@ pptx.company = 'Ventanilla Inclusiva';
 
 const W = 13.33;
 
-// Título de sección reutilizable (sin líneas decorativas)
+// Título de sección reutilizable (con línea decorativa)
 function titulo(slide, texto) {
   slide.addText(texto, {
-    x: 0.7, y: 0.5, w: W - 1.4, h: 0.9,
-    fontFace: HEAD, fontSize: 34, bold: true, color: NAVY, align: 'left'
+    x: 0.7, y: 0.4, w: W - 1.4, h: 0.8,
+    fontFace: HEAD, fontSize: 32, bold: true, color: NAVY, align: 'left'
   });
+  slide.addShape(pptx.ShapeType.rect, { x: 0.7, y: 1.15, w: 1.2, h: 0.05, fill: { color: AMBAR } });
 }
+
 
 function circuloNum(slide, n, x, y) {
   slide.addShape(pptx.ShapeType.ellipse, { x, y, w: 0.7, h: 0.7, fill: { color: NAVY } });
@@ -61,7 +63,7 @@ s.addText('— Usuario con discapacidad visual, Cusco', { x: 5.8, y: 5.6, w: 6.8
 // ---------- Slide 3: La solución ----------
 s = pptx.addSlide(); s.background = { color: BLANCO };
 titulo(s, 'La solución');
-s.addText('Construí un sistema de mesa de partes inclusiva: ingresar a un casillero, presentar una solicitud (con adjuntos), recibir el expediente y darle seguimiento — todo accesible (WCAG 2.2), con su propio lector de pantalla, de forma autónoma y privada.',
+s.addText('Un asistente conversacional guiado y accesible (WCAG 2.2) que permite a una persona ciega presentar y consultar una solicitud de acceso a información pública de forma autónoma y privada, usando su propio lector de pantalla.',
   { x: 0.7, y: 1.7, w: 11.9, h: 1.8, fontFace: BODY, fontSize: 22, color: TEXTO, lineSpacingMultiple: 1.15 });
 const chips = ['Autónomo', 'Privado', 'Offline', 'Open source'];
 chips.forEach((c, i) => {
@@ -76,28 +78,49 @@ chips.forEach((c, i) => {
 s = pptx.addSlide(); s.background = { color: BLANCO };
 titulo(s, 'Cómo funciona el prototipo');
 const pasos = [
-  ['1', 'Tus datos', 'Nombre, DNI y correo, paso a paso.'],
-  ['2', 'Qué solicitas', 'Describe la información pública que necesitas.'],
-  ['3', 'Forma de entrega', 'Por correo o recojo presencial.'],
-  ['4', 'Confirmación', 'Recibe tu número de expediente.']
+  ['1', 'Trámite TUPA', 'Selección accesible del trámite (Copias, Transparencia, etc.)'],
+  ['2', 'Tus datos (RENIEC)', 'Autocompletado automático al ingresar tu DNI.'],
+  ['3', 'Documento y Carga', 'Asunto, folios y adjunto de sustento (PDF/JPG/PNG).'],
+  ['4', 'Forma de entrega', 'Por correo electrónico o recojo presencial.'],
+  ['5', 'Confirmación', 'Revisión final y generación de número de expediente.']
 ];
 pasos.forEach((p, i) => {
-  const y = 1.7 + i * 1.15;
+  const y = 1.35 + i * 1.1;
   circuloNum(s, p[0], 0.7, y);
-  s.addText(p[1], { x: 1.6, y: y - 0.05, w: 4.0, h: 0.5, fontFace: HEAD, fontSize: 19, bold: true, color: NAVY });
-  s.addText(p[2], { x: 1.6, y: y + 0.4, w: 5.2, h: 0.5, fontFace: BODY, fontSize: 14, color: GRIS });
+  s.addText(p[1], { x: 1.6, y: y - 0.05, w: 5.0, h: 0.4, fontFace: HEAD, fontSize: 18, bold: true, color: NAVY });
+  s.addText(p[2], { x: 1.6, y: y + 0.35, w: 5.2, h: 0.4, fontFace: BODY, fontSize: 13, color: GRIS });
 });
-s.addShape(pptx.ShapeType.roundRect, { x: 7.4, y: 1.7, w: 5.2, h: 4.4, rectRadius: 0.12,
+s.addShape(pptx.ShapeType.roundRect, { x: 7.4, y: 1.35, w: 5.2, h: 5.1, rectRadius: 0.12,
   fill: { color: 'F2F5FB' }, line: { color: NAVY, width: 1 } });
 s.addText([
   { text: 'Además\n', options: { bold: true, fontSize: 18, color: NAVY } },
-  { text: '🗂️  Casillero electrónico: ve tus solicitudes\n\n', options: {} },
-  { text: '🔊  Modo voz: la app lee sola, sin instalar nada\n\n', options: {} },
-  { text: '🎙️  Comandos de voz en español (manos libres)\n\n', options: {} },
-  { text: '📱  App instalable (PWA) que funciona offline', options: {} }
-], { x: 7.7, y: 2.0, w: 4.6, h: 3.8, fontFace: BODY, fontSize: 15, color: TEXTO, lineSpacingMultiple: 1.0 });
+  { text: '🔐  Casillero Electrónico: bandeja ciudadana accesible con historial y notificaciones oficiales.\n\n', options: {} },
+  { text: '🎙️  Comandos de voz en español (mejora manos libres)\n\n', options: {} },
+  { text: '🗣️  Audio de apoyo en quechua por cada paso del asistente\n\n', options: {} },
+  { text: '⚠️  Identificación de errores accesible (resumen y foco programado)', options: {} }
+], { x: 7.7, y: 1.6, w: 4.6, h: 4.6, fontFace: BODY, fontSize: 13.5, color: TEXTO, lineSpacingMultiple: 1.0 });
 
-// ---------- Slide 5: Valor público ----------
+// ---------- Slide 5: Interfaz del Prototipo ----------
+s = pptx.addSlide(); s.background = { color: BLANCO };
+titulo(s, 'Interfaz del Prototipo');
+
+// Tarjeta 1 (Izquierda) - Screenshot 1
+s.addShape(pptx.ShapeType.roundRect, { x: 0.7, y: 1.6, w: 5.6, h: 5.1, rectRadius: 0.12, fill: { color: 'F2F5FB' } });
+s.addImage({ path: 'screenshot1.png', x: 1.0, y: 1.9, w: 5.0, h: 3.5 });
+s.addText('Pantalla de inicio y Casillero Electrónico accesible.', {
+  x: 0.7, y: 5.6, w: 5.6, h: 0.9,
+  fontFace: BODY, fontSize: 14, color: TEXTO, align: 'center', bold: true
+});
+
+// Tarjeta 2 (Derecha) - Screenshot 2
+s.addShape(pptx.ShapeType.roundRect, { x: 7.0, y: 1.6, w: 5.6, h: 5.1, rectRadius: 0.12, fill: { color: 'F2F5FB' } });
+s.addImage({ path: 'screenshot2.png', x: 7.3, y: 1.9, w: 5.0, h: 3.5 });
+s.addText('Asistente conversacional con soporte de voz y audio en quechua.', {
+  x: 7.0, y: 5.6, w: 5.6, h: 0.9,
+  fontFace: BODY, fontSize: 14, color: TEXTO, align: 'center', bold: true
+});
+
+// ---------- Slide 6: Valor público ----------
 s = pptx.addSlide(); s.background = { color: BLANCO };
 titulo(s, 'Valor público');
 const valores = [
@@ -115,19 +138,23 @@ valores.forEach((v, i) => {
   s.addText(v[1], { x: x + 0.3, y: y + 0.95, w: 5.2, h: 0.9, fontFace: BODY, fontSize: 16, color: TEXTO });
 });
 
-// ---------- Slide 6: Apertura y ética ----------
+// ---------- Slide 7: Apertura, reutilización y ética ----------
 s = pptx.addSlide(); s.background = { color: BLANCO };
 titulo(s, 'Apertura, reutilización y ética');
-s.addText([
-  { text: 'Open source (licencia MIT)', options: { bold: true } },
-  { text: ' — el GORE puede adoptarlo y mejorarlo (DL 1412, art. 29).\n\n' },
-  { text: 'Componentes accesibles reutilizables', options: { bold: true } },
-  { text: ' — se integran por partes a los sistemas actuales.\n\n' },
-  { text: 'Datos 100% sintéticos, offline, sin IA en la nube', options: { bold: true } },
-  { text: ' — sin tocar sistemas reales ni exponer credenciales.\n\n' },
-  { text: 'Estándares', options: { bold: true } },
-  { text: ' — WCAG 2.2, Ley 29973, Ley 29733 y Lineamientos de Accesibilidad del Estado.' }
-], { x: 0.7, y: 1.8, w: 11.9, h: 4.5, fontFace: BODY, fontSize: 20, color: TEXTO, lineSpacingMultiple: 1.1 });
+const etica = [
+  ['Licencia Libre (MIT)', 'Código 100% abierto que el GORE Cusco puede adoptar, mejorar y desplegar legalmente (D.L. 1412, art. 29).'],
+  ['Diseño Reutilizable', 'Componentes modulares de accesibilidad (stepper, forms) listos para integrarse a los sistemas actuales del GRC.'],
+  ['Privacidad por Diseño', 'Datos 100% sintéticos. Sin IA en la nube, sin datos personales y operable de forma local (offline).'],
+  ['Cumplimiento de Estándares', 'Alineado a las pautas WCAG 2.2, Ley N° 29973 (Discapacidad) y Ley N° 29733 (Datos Personales).']
+];
+etica.forEach((v, i) => {
+  const col = i % 2, row = Math.floor(i / 2);
+  const x = 0.7 + col * 6.1, y = 1.8 + row * 2.3;
+  s.addShape(pptx.ShapeType.roundRect, { x, y, w: 5.8, h: 2.0, rectRadius: 0.12,
+    fill: { color: 'F2F5FB' } });
+  s.addText(v[0], { x: x + 0.3, y: y + 0.25, w: 5.2, h: 0.6, fontFace: HEAD, fontSize: 20, bold: true, color: NAVY });
+  s.addText(v[1], { x: x + 0.3, y: y + 0.95, w: 5.2, h: 0.9, fontFace: BODY, fontSize: 14.5, color: TEXTO });
+});
 
 // ---------- Slide 7: Riesgos y mitigación ----------
 s = pptx.addSlide(); s.background = { color: BLANCO };

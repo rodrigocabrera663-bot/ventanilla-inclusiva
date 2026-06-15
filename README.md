@@ -70,10 +70,9 @@ python -m http.server 8080
 
 También puedes comparar el antes/después en `comparativa.html` para escuchar la diferencia.
 
-## Cómo lo convertí en app móvil (APK)
-La hice **PWA**, así que se instala desde el navegador en Android. Para generar un
-**.apk** la empaqueté con [PWABuilder](https://www.pwabuilder.com/) apuntando a la URL
-pública del sitio — sin reescribir código.
+## Instalación como PWA (App Web Progresiva)
+La hice **PWA**, lo que permite instalar la plataforma directamente desde el navegador en dispositivos Android, iOS y computadoras de escritorio, permitiendo el acceso offline y un inicio directo.
+
 
 ## Arquitectura
 Sitio estático, sin dependencias de runtime ni build.

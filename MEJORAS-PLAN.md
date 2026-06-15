@@ -34,10 +34,10 @@ para que el GORE la adopte.
   con profundidad sutil, marca/wordmark. Mantiene contraste AA y foco visible.
 - **Por qué:** "se ve del 2005" → desconfianza de autoridades + baja visión. 15% + 30%.
 
-### 5. PWA (instalable, offline) + APK
+### 5. PWA (instalable, offline)
 - `manifest.webmanifest` + `sw.js` (cachea assets → funciona sin internet) + íconos.
-- Botón/aviso "Instalar app". APK vía **PWABuilder** (guío a Rodrigo con la URL pública).
-- **Por qué:** "app móvil real" + offline para zonas rurales de Cusco. 30%.
+- Botón/aviso "Instalar app" para acceso directo en celular y escritorio.
+- **Por qué:** aplicación instalable y offline para zonas rurales de Cusco. 30%.
 
 ### 6. Reescritura en primera persona (voz de autor)
 - README, contenido del PPT y texto de Facilita en primera persona: "Desarrollé…",
@@ -54,7 +54,7 @@ para que el GORE la adopte.
 - [ ] **Prueba con NVDA** (5 min) y me reportas.
 - [ ] **Grabar audio quechua** (12 frases, hablante nativo Qosqo-Qollaw).
 - [ ] Repo a **público** antes de enviar.
-- [ ] **Generar el APK** en PWABuilder (te guío con la URL).
+- [ ] **Probar la instalación PWA** desde el navegador.
 - [ ] **Video demo 1-2 min** con NVDA (lo más convincente para el jurado).
 - [ ] **Enviar en Facilita** antes del 14/06 11:59 pm.
 
